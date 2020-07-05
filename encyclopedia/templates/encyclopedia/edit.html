@@ -7,6 +7,7 @@
 {% block body %}
     <h1>Edit Wiki Entry</h1>
 
+    <!-- edit form. Can not edit title. -->
     <form action="{% url 'edit' title=title %}" method="POST">
         {% csrf_token %}
         {{ edit }}

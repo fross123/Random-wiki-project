@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block body %}
+    <!-- entry content in HTML format -->
     {{ content |safe}}
 
     <a class="btn btn-outline-info" href="{% url 'edit' title=title %}" role="button">Edit Page</a>
