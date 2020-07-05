@@ -8,14 +8,14 @@ from random import choices
 from . import util
 
 class SearchForm(forms.Form):
-    search = forms.CharField(label="Search", max_length=64)
+    search = forms.CharField(label="Search", max_length=64, widget=forms.TextInput(attrs={'class': 'form-control'}))
 
 class createForm(forms.Form):
-    title = forms.CharField(label="title", max_length=64)
-    content = forms.CharField(widget=forms.Textarea, label="")
+    title = forms.CharField(label="Title", max_length=64, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control'}), label="Content")
 
 class EditForm(forms.Form):
-    content = forms.CharField(widget=forms.Textarea, label="")
+    content = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}), label="")
 
 def index(request):
     return render(request, "encyclopedia/index.html", {

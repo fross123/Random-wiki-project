@@ -10,10 +10,16 @@
     <!-- new entry form -->
     <form action="{% url 'new' %}" method="POST">
         {% csrf_token %}
-        {{ create }}
-        <p>
-            <input class="btn btn-warning" type="submit" />
-        </p>
+        {% for field in create %}
+        <div class="form-group col-auto">
+            {{ field.label_tag }}
+            {{ field }}
+        </div>
+        {% endfor %}
+        <div class="col-auto">
+            <button type="submit" class="btn btn-warning">Create Page</button>
+        </div>
+
     </form>
 
 {% endblock %}

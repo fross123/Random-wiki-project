@@ -10,10 +10,14 @@
     <!-- edit form. Can not edit title. -->
     <form action="{% url 'edit' title=title %}" method="POST">
         {% csrf_token %}
-        {{ edit }}
-        <p>
-            <input class="btn btn-warning" type="submit" />
-        </p>
+        {% for field in edit %}
+        <div class="form-group col-auto">
+            {{ field }}
+        </div>
+        {% endfor %}
+        <div class="col-auto">
+            <button type="submit" class="btn btn-warning">Update Page</button>
+        </div>
     </form>
 
 {% endblock %}
