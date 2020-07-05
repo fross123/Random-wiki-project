@@ -12,10 +12,10 @@ class SearchForm(forms.Form):
 
 class createForm(forms.Form):
     title = forms.CharField(label="title", max_length=64)
-    content = forms.CharField(widget=forms.Textarea, label="content")
+    content = forms.CharField(widget=forms.Textarea, label="")
 
 class EditForm(forms.Form):
-    content = forms.CharField(widget=forms.Textarea, label="content")
+    content = forms.CharField(widget=forms.Textarea, label="")
 
 def index(request):
     return render(request, "encyclopedia/index.html", {

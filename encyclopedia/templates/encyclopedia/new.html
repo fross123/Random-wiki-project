@@ -10,7 +10,9 @@
     <form action="{% url 'new' %}" method="POST">
         {% csrf_token %}
         {{ create }}
-        <input type="submit" />
+        <p>
+            <input class="btn btn-warning" type="submit" />
+        </p>
     </form>
 
 {% endblock %}
