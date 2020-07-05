@@ -125,4 +125,4 @@ def edit(request, title):
         if form.is_valid():
             content = form.cleaned_data["content"]
             util.save_entry(title, content)
-            return entry(request, title)
+            return HttpResponseRedirect(f"/wiki/{title}")
