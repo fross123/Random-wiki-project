@@ -3,7 +3,7 @@ import markdown2
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
+from random import choices
 
 from . import util
 
@@ -126,3 +126,10 @@ def edit(request, title):
             content = form.cleaned_data["content"]
             util.save_entry(title, content)
             return HttpResponseRedirect(f"/wiki/{title}")
+
+def random(request):
+
+    x = choices(util.list_entries())
+    y = "".join(x)
+
+    return HttpResponseRedirect(f"/wiki/{y}")
