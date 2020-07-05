@@ -3,6 +3,7 @@ import markdown2
 from django import forms
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
 from . import util
 
@@ -11,6 +12,9 @@ class SearchForm(forms.Form):
 
 class createForm(forms.Form):
     title = forms.CharField(label="title", max_length=64)
+    content = forms.CharField(widget=forms.Textarea, label="content")
+
+class EditForm(forms.Form):
     content = forms.CharField(widget=forms.Textarea, label="content")
 
 def index(request):
@@ -22,8 +26,9 @@ def index(request):
 def entry(request, title):
     if util.get_entry(title):
         return render(request, "encyclopedia/entry.html", {
-            "entry": markdown2.markdown(util.get_entry(title)),
-            "search": SearchForm()
+            "content": markdown2.markdown(util.get_entry(title)),
+            "search": SearchForm(),
+            "title": title
 
         })
     else:
@@ -99,3 +104,25 @@ def new(request):
             "search": SearchForm(),
             "create": createForm()
         })
+
+def edit(request, title):
+    if request.method == "GET":
+        if util.get_entry(title):
+            form = EditForm(initial={"content": util.get_entry(title)})
+
+            return render(request, "encyclopedia/edit.html", {
+                "search": SearchForm(),
+                "edit": form,
+                "title": title
+            })
+        else:
+            return render(request, "encyclopedia/error.html", {
+                "error": "No Entry Found.",
+                "search": SearchForm()
+            })
+    elif request.method == "POST":
+        form = EditForm(request.POST)
+        if form.is_valid():
+            content = form.cleaned_data["content"]
+            util.save_entry(title, content)
+            return entry(request, title)
