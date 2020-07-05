@@ -27,6 +27,7 @@ def entry(request, title):
     # if entry matches title
     if util.get_entry(title):
         return render(request, "encyclopedia/entry.html", {
+            "title": title,
             "content": markdown2.markdown(util.get_entry(title)),
             "search": SearchForm(),
             "title": title
@@ -141,6 +142,6 @@ def random(request):
 
     # list to a str
     y = "".join(x)
-    
+
     # redirect to wiki page
     return HttpResponseRedirect(f"/wiki/{y}")
