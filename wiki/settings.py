@@ -123,12 +123,3 @@ STATIC_URL = '/static/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-# REDIRECT TO SSL 
-SECURE_SSL_REDIRECT = True
-
-# do not transmit CSRF over HTTP
-CSRF_COOKIE_SECURE = True
-
-# do not transmit cookies over HTTP
-SESSION_COOKIE_SECURE = True
