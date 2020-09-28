@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = []
 
@@ -125,10 +125,10 @@ STATIC_URL = '/static/'
 django_heroku.settings(locals())
 
 # REDIRECT TO SSL
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 # do not transmit CSRF over HTTP
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
 # do not transmit cookies over HTTP
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False

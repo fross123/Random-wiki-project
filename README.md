@@ -1,5 +1,11 @@
-# fross123 CS50 Web -- 2020
-## Project1 - Wiki
+# Random Wiki
+
+This is a project for [CS50 Web Programming with Python and Javascript](https://cs50.harvard.edu/web/2020/projects/1/wiki/)
+
+A basic wiki application that allows users to create and edit web pages using markdown.
+
+Link to the live demo:
+https://wiki-project.herokuapp.com/
 
 ### urls.py
 - index
@@ -9,7 +15,7 @@
 - entry
   - title as variable
 - edit
-  - title as variable + edit
+  - title as variable + "edit"
 
 ###  views.py
 #### Forms
