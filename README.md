@@ -5,7 +5,7 @@ This is a project for [CS50 Web Programming with Python and Javascript](https://
 A basic wiki application that allows users to create and edit web pages using markdown.
 
 Link to the live demo:
-https://wiki-project.herokuapp.com/
+https://wiki-project.up.railway.app
 
 ### urls.py
 - index

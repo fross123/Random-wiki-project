@@ -1,3 +1,4 @@
 gunicorn
-django-heroku
 markdown2
+Django
+psycopg2-binary
