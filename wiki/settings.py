@@ -129,7 +129,7 @@ STATIC_ROOT  = os.path.join(BASE_DIR, 'staticfiles')
 SECURE_SSL_REDIRECT = False
 
 # do not transmit CSRF over HTTP
-CSRF_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = False
 
 # do not transmit cookies over HTTP
-SESSION_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = False
